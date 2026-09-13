@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "example.hello",
+  "name": "Hello",
+  "version": "0.1.0",
+  "apiVersion": 1,
+  "description": "The reference ewe plugin: a headless service, a panel with its own IPC target, and a bar widget.",
+  "homepage": "https://github.com/prj786/ewe-plugin-example",
+  "author": "prj786",
+  "kinds": ["service", "panel", "bar-widget"],
+  "entryPoints": {
+    "service": "Service.qml",
+    "panel": "Panel.qml",
+    "bar-widget": "Widget.qml"
+  },
+  "barWidget": { "defaultSection": "right" }
+}
