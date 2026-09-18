@@ -2,24 +2,29 @@ import QtQuick
 import qs
 
 // A bar widget: an Item with an implicit size, packed by the bar like a
-// built-in indicator. Uses the bar's own conventions from Theme.
+// built-in module (Bar card): barModule tall, spaceS of side padding,
+// radiusPrimary, no fill until you point at it. The bar* roles already
+// follow Glass; everything else is a Theme token (design system v3).
 Item {
     id: root
     property string label: "hello"
-    implicitWidth: row.implicitWidth + 2 * Theme.barItemPad
-    implicitHeight: Theme.barItemHeight
+    implicitWidth: row.implicitWidth + 2 * Theme.spaceS
+    implicitHeight: Theme.barModule
     Rectangle {
         anchors.fill: parent
-        radius: Theme.barItemRadius
-        color: ma.containsMouse ? Theme.barHover : "transparent"
-        Behavior on color { ColorAnimation { duration: Theme.durFast } }
+        radius: Theme.radiusPrimary
+        color: ma.pressed ? Theme.barPressedFill : ma.containsMouse ? Theme.barHoverFill : "transparent"
+        Behavior on color { ColorAnimation { duration: Theme.durFast; easing.type: Theme.easeFast } }
     }
     Row {
         id: row
         anchors.centerIn: parent
-        spacing: 5
-        Text { anchors.verticalCenter: parent.verticalCenter; text: Theme.icStar; font.family: Theme.fontIcons; font.pixelSize: Theme.barIconPx; color: Theme.fg2 }
-        Text { anchors.verticalCenter: parent.verticalCenter; text: root.label; font.family: Theme.fontText; font.pixelSize: 12; color: Theme.fg1 }
+        spacing: Theme.spaceXs
+        Text { anchors.verticalCenter: parent.verticalCenter; text: Theme.icStar; font.family: Theme.fontIcons; font.pixelSize: Theme.barIcon; color: ma.containsMouse ? Theme.textPrimary : Theme.textSecondary }
+        Text {
+            anchors.verticalCenter: parent.verticalCenter; text: root.label; color: Theme.textPrimary
+            font.family: Theme.type.label.family; font.pixelSize: Theme.type.label.size; font.weight: Theme.type.label.weight
+        }
     }
     MouseArea { id: ma; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor; onClicked: Globals.openSettings() }
 }
