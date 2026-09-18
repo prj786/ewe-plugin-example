@@ -17,20 +17,23 @@ Scope {
     PanelWindow {
         visible: root.shown
         anchors { bottom: true; right: true }
-        margins { bottom: 12; right: 12 }
-        implicitWidth: 260
-        implicitHeight: 72
+        margins { bottom: Theme.windowGap; right: Theme.windowGap }
+        implicitWidth: Theme.panelSm
+        implicitHeight: Theme.control2xl + 2 * Theme.spaceS
         color: "transparent"
+        // a panel is solid (never Glass): surfaceRaised, a borderSubtle
+        // outline and the radiusRounded corner, like ewe's own
         Rectangle {
             anchors.fill: parent
-            radius: Theme.radius
-            color: Theme.bg2
+            radius: Theme.radiusRounded
+            color: Theme.surfaceRaised
+            border.color: Theme.borderSubtle; border.width: Theme.borderWidth1
             Text {
                 anchors.centerIn: parent
                 text: "Hello from example.hello"
-                color: Theme.fg1
-                font.family: Theme.fontText
-                font.pixelSize: Theme.fsBody
+                color: Theme.textPrimary
+                font.family: Theme.type.body.family
+                font.pixelSize: Theme.type.body.size
             }
         }
     }
