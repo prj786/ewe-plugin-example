@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "example.hello",
   "name": "Hello",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "apiVersion": 2,
   "description": "The reference ewe plugin: a headless service, a panel with its own IPC target, and a bar widget.",
   "homepage": "https://github.com/prj786/ewe-plugin-example",

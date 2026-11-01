@@ -7,7 +7,7 @@ start your own. Three entry points, one file each:
 |---|---|---|
 | `service` | `Service.qml` | a headless object: logs the shell version and accent via `Globals` and `Theme` |
 | `panel` | `Panel.qml` | a `PanelWindow` with its own `IpcHandler` — `qs ipc call example.hello toggle` |
-| `bar-widget` | `Widget.qml` | an `Item` the bar packs like a built-in indicator, click opens Settings |
+| `bar-widget` | `Widget.qml` | an `Item` the bar packs like a built-in indicator, click opens ewe Settings |
 
 ```sh
 ewe-plugin add https://github.com/prj786/ewe-plugin-example.git --enable
